@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "learn/bin/python",
+    "python.linting.enabled": true
+}
