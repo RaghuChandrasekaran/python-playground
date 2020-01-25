@@ -1,10 +1,13 @@
-FROM gitpod/workspace-full
-                    
+# This will pull the official Gitpod `vnc` image
+# which has much of what you need to start
+FROM gitpod/workspace-full-vnc
+
 USER gitpod
 
-# Install custom tools, runtime, etc. using apt-get
-# For example, the command below would install "bastet" - a command line tetris clone:
-#
-# RUN sudo apt-get -q update && #     sudo apt-get install -yq bastet && #     sudo rm -rf /var/lib/apt/lists/*
-#
-# More information: https://www.gitpod.io/docs/42_config_docker/
+# Install wxPython dependencies
+RUN sudo apt-get -q update && \
+    sudo DEBIAN_FRONTEND=noninteractive apt-get install -yq apt-get install python3-tk && \
+    sudo rm -rf /var/lib/apt/lists/*
+
+# Install wxPython
+RUN pip3 install pylint matplotlib
