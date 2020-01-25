@@ -1,1 +1,6 @@
-{ image: { file: .gitpod.Dockerfile } }
+image: gitpod/workspace-full-vnc:branch-jx-python-tk
+tasks:
+- command: bash setup.sh
+ports:
+  - port: 6080
+    onOpen: ignore
